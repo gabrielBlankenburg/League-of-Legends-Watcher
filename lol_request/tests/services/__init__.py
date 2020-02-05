@@ -1,0 +1,1 @@
+from .LolApiTests import LolApiTests

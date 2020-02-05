@@ -1,0 +1,1 @@
+from .services.LolApiTests import LolApiTests
