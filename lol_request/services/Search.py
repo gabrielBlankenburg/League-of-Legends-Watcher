@@ -1,4 +1,4 @@
-from lol_request.dependency_injector.dependencies import di
+from lol_request.dependency_injector.search import di
 
 
 class Search:
@@ -7,6 +7,7 @@ class Search:
 		self._lol_api = _deps.get_new_object('LolApi')
 		self._converter = _deps.get_new_object('ApiToModelConverter')
 		self._formatter = _deps.get_new_object('ResponseFormatter')
+		self._deps = _deps
 
 	def _search_league_by_summoner_id(self, summoner):
 		"""Get player rank infos and converts it into a lol_request.models.Summoner object.
@@ -98,7 +99,7 @@ class Search:
 		list
 			Formatted game info and list of dicts with games info.
 		"""
-		summoner = Summoner()
+		summoner = self._deps.get_new_object('Summoner')
 
 		response = self._lol_api.search_summoner_by_nick(nick)
 

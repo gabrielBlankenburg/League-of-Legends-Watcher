@@ -1,4 +1,4 @@
-from lol_request.dependency_injector.dependencies import di
+from lol_request.dependency_injector.utils import di
 
 class ApiToModelConverter:
 	@di.inject
